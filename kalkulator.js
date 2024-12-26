@@ -1,6 +1,22 @@
-// Fungsi untuk menambah matriks A dan B
+// Fungsi untuk menampilkan hasil sebagai tabel
+function displayAsTable(matrix) {
+    let tableHTML = `
+        <table>
+            <tr>
+                <td>${matrix[0][0]}</td>
+                <td>${matrix[0][1]}</td>
+            </tr>
+            <tr>
+                <td>${matrix[1][0]}</td>
+                <td>${matrix[1][1]}</td>
+            </tr>
+        </table>
+    `;
+    return tableHTML;
+}
+
+// Fungsi untuk menambah matriks
 function addMatrices() {
-    // Mengambil nilai input matriks A dan B
     let a11 = parseFloat(document.getElementById("a11").value);
     let a12 = parseFloat(document.getElementById("a12").value);
     let a21 = parseFloat(document.getElementById("a21").value);
@@ -11,19 +27,16 @@ function addMatrices() {
     let b21 = parseFloat(document.getElementById("b21").value);
     let b22 = parseFloat(document.getElementById("b22").value);
 
-    // Menjumlahkan matriks A dan B
-    let result = `
-        [${a11 + b11}, ${a12 + b12}] <br>
-        [${a21 + b21}, ${a22 + b22}]
-    `;
+    let result = [
+        [a11 + b11, a12 + b12],
+        [a21 + b21, a22 + b22]
+    ];
 
-    // Menampilkan hasil
-    document.getElementById("result").innerHTML = result;
+    document.getElementById("result").innerHTML = displayAsTable(result);
 }
 
-// Fungsi untuk mengurangi matriks A dan B
+// Fungsi untuk mengurangi matriks
 function subtractMatrices() {
-    // Mengambil nilai input matriks A dan B
     let a11 = parseFloat(document.getElementById("a11").value);
     let a12 = parseFloat(document.getElementById("a12").value);
     let a21 = parseFloat(document.getElementById("a21").value);
@@ -34,19 +47,16 @@ function subtractMatrices() {
     let b21 = parseFloat(document.getElementById("b21").value);
     let b22 = parseFloat(document.getElementById("b22").value);
 
-    // Mengurangi matriks A dan B
-    let result = `
-        [${a11 - b11}, ${a12 - b12}] <br>
-        [${a21 - b21}, ${a22 - b22}]
-    `;
+    let result = [
+        [a11 - b11, a12 - b12],
+        [a21 - b21, a22 - b22]
+    ];
 
-    // Menampilkan hasil
-    document.getElementById("result").innerHTML = result;
+    document.getElementById("result").innerHTML = displayAsTable(result);
 }
 
-// Fungsi untuk mengalikan matriks A dan B
+// Fungsi untuk mengalikan matriks
 function multiplyMatrices() {
-    // Mengambil nilai input matriks A dan B
     let a11 = parseFloat(document.getElementById("a11").value);
     let a12 = parseFloat(document.getElementById("a12").value);
     let a21 = parseFloat(document.getElementById("a21").value);
@@ -57,12 +67,16 @@ function multiplyMatrices() {
     let b21 = parseFloat(document.getElementById("b21").value);
     let b22 = parseFloat(document.getElementById("b22").value);
 
-    // Mengalikan matriks A dan B
-    let result = `
-        [${a11 * b11 + a12 * b21}, ${a11 * b12 + a12 * b22}] <br>
-        [${a21 * b11 + a22 * b21}, ${a21 * b12 + a22 * b22}]
-    `;
+    let result = [
+        [
+            a11 * b11 + a12 * b21,
+            a11 * b12 + a12 * b22
+        ],
+        [
+            a21 * b11 + a22 * b21,
+            a21 * b12 + a22 * b22
+        ]
+    ];
 
-    // Menampilkan hasil
-    document.getElementById("result").innerHTML = result;
+    document.getElementById("result").innerHTML = displayAsTable(result);
 }
