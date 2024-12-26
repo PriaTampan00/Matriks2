@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Operasi Matriks</title>
+    <link rel="stylesheet" href="kalkulator.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Kalkulator Matriks<br>Ervi Dayah</h2>
+        <div class="matrix-section">
+            <div>
+                <h2>Matriks A</h2>
+                <div class="matrix-input" id="matrixA">
+                    <!-- Input matriks A -->
+                    <input type="number" id="a11" class="matrix-input-field">
+                    <input type="number" id="a12" class="matrix-input-field">
+                    <input type="number" id="a21" class="matrix-input-field">
+                    <input type="number" id="a22" class="matrix-input-field">
+                </div>
+            </div>
+
+            <div>
+                <h2>Matriks B</h2>
+                <div class="matrix-input" id="matrixB">
+                    <!-- Input matriks B -->
+                    <input type="number" id="b11" class="matrix-input-field">
+                    <input type="number" id="b12" class="matrix-input-field">
+                    <input type="number" id="b21" class="matrix-input-field">
+                    <input type="number" id="b22" class="matrix-input-field">
+                </div>
+            </div>
+        </div>
+
+                <div class="buttons">
+                    <br><br>
+                    <button onclick="addMatrices()">Tambah</button>
+                    <button onclick="subtractMatrices()">Kurang</button>
+                    <button onclick="multiplyMatrices()">Kali</button>
+                </div>
+
+                <h3>Hasil</h3>
+                <div id="result"></div>
+            </div>
+
+        <script>
+            // Fungsi untuk menampilkan hasil sebagai tabel
+            function displayAsTable(matrix) {
+                return `
+                    <table border="1" cellpadding="5">
+                        <tr>
+                            <td>${matrix[0][0]}</td>
+                            <td>${matrix[0][1]}</td>
+                        </tr>
+                        <tr>
+                            <td>${matrix[1][0]}</td>
+                            <td>${matrix[1][1]}</td>
+                        </tr>
+                    </table>
+                `;
+            }
+
+            // Fungsi untuk menambah matriks
+            function addMatrices() {
+                let a11 = parseFloat(document.getElementById("a11").value);
+                let a12 = parseFloat(document.getElementById("a12").value);
+                let a21 = parseFloat(document.getElementById("a21").value);
+                let a22 = parseFloat(document.getElementById("a22").value);
+
+                let b11 = parseFloat(document.getElementById("b11").value);
+                let b12 = parseFloat(document.getElementById("b12").value);
+                let b21 = parseFloat(document.getElementById("b21").value);
+                let b22 = parseFloat(document.getElementById("b22").value);
+
+                let result = [
+                    [a11 + b11, a12 + b12],
+                    [a21 + b21, a22 + b22]
+                ];
+
+                document.getElementById("result").innerHTML = displayAsTable(result);
+            }
+
+            // Fungsi untuk mengurangi matriks
+            function subtractMatrices() {
+                let a11 = parseFloat(document.getElementById("a11").value);
+                let a12 = parseFloat(document.getElementById("a12").value);
+                let a21 = parseFloat(document.getElementById("a21").value);
+                let a22 = parseFloat(document.getElementById("a22").value);
+
+                let b11 = parseFloat(document.getElementById("b11").value);
+                let b12 = parseFloat(document.getElementById("b12").value);
+                let b21 = parseFloat(document.getElementById("b21").value);
+                let b22 = parseFloat(document.getElementById("b22").value);
+
+                let result = [
+                    [a11 - b11, a12 - b12],
+                    [a21 - b21, a22 - b22]
+                ];
+
+                document.getElementById("result").innerHTML = displayAsTable(result);
+            }
+
+            // Fungsi untuk mengalikan matriks
+            function multiplyMatrices() {
+                let a11 = parseFloat(document.getElementById("a11").value);
+                let a12 = parseFloat(document.getElementById("a12").value);
+                let a21 = parseFloat(document.getElementById("a21").value);
+                let a22 = parseFloat(document.getElementById("a22").value);
+
+                let b11 = parseFloat(document.getElementById("b11").value);
+                let b12 = parseFloat(document.getElementById("b12").value);
+                let b21 = parseFloat(document.getElementById("b21").value);
+                let b22 = parseFloat(document.getElementById("b22").value);
+
+                let result = [
+                    [
+                        a11 * b11 + a12 * b21,
+                        a11 * b12 + a12 * b22
+                    ],
+                    [
+                        a21 * b11 + a22 * b21,
+                        a21 * b12 + a22 * b22
+                    ]
+                ];
+
+                document.getElementById("result").innerHTML = displayAsTable(result);
+            }
+    
+        </script>
+    </div>
+</body>
+</html>
